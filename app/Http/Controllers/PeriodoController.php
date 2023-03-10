@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Periodo;
+use App\Models\Ficha;
 use Illuminate\Http\Request;
 
 class PeriodoController extends Controller
@@ -12,7 +13,10 @@ class PeriodoController extends Controller
      */
     public function index()
     {
-        //
+        $periodo=Periodo::orderby('id','asc')->get();
+
+        $ficha =Ficha::all();
+        return view('periodos.indexperiodos',['mostrar'=>$periodo,'fichas'=>$ficha]);
     }
 
     /**
@@ -28,7 +32,8 @@ class PeriodoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $periodo=Periodo::create($request->all());
+        return redirect()->route('periodos');
     }
 
     /**
@@ -44,7 +49,13 @@ class PeriodoController extends Controller
      */
     public function edit(Periodo $periodo)
     {
-        //
+        $id=$_GET["pan"];
+        $periodo=Periodo::where('id','=',$id)->first();
+
+        $ficha =Ficha::all();
+
+        return view('periodos.editarperiodos',['mostrar'=>$periodo,'fichas'=>$ficha]);
+
     }
 
     /**
@@ -52,7 +63,9 @@ class PeriodoController extends Controller
      */
     public function update(Request $request, Periodo $periodo)
     {
-        //
+        $periodo->update($request->all());
+
+        return redirect()->route('programas');
     }
 
     /**

@@ -5,16 +5,16 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Periodo extends Model
+class Principal extends Model
 {
     use HasFactory;
     //protected $primaryKey= '';
     //protected $keyType = 'string';
     protected $fillable =[
-        'dia',
+        'nro_ficha',
         'codigo_com',
-        'fecha_inicio',
-        'fecha_fin',
-        'nro_ficha'
+        'nro_documento',
+        'nro_ambiente',
+        'Trimestre'
     ];
 }

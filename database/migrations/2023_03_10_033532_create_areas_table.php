@@ -15,7 +15,7 @@ return new class extends Migration
             $table->string('codigo_area',10)->primary();
             $table->text('nombre');
             $table->string('codigo_red',10);
-            $table->foreign('codigo_red')->references('codigo_red')->on('reds');
+            $table->foreign('codigo_red')->references('codigo_red')->on('reds')->onDelete('cascade')->onUpdate('cascade');
             $table->timestamps();
         });
     }

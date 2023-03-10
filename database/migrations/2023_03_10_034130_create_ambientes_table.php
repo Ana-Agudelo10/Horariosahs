@@ -18,7 +18,7 @@ return new class extends Migration
             $table->integer('nro_elementos');
             $table->text('descripcion');
             $table->unsignedBigInteger('codigo_centro');
-            $table->foreign('codigo_centro')->references('codigo_centro')->on('sedes');
+            $table->foreign('codigo_centro')->references('codigo_centro')->on('sedes')->onDelete('cascade')->onUpdate('cascade');
          });
     }
 

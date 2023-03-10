@@ -28,8 +28,12 @@ class DatabaseSeeder extends Seeder
         $this->call(SedeSeeder::class);
         $this->call(AmbienteSeeder::class);
         $this->call(SemaforoSeeder::class);
+        $this->call(TipoDocumentoSeeder::class);
+        $this->call(TipoContratoSeeder::class);
         $this->call(InstructorSeeder::class);
+        $this->call(DiaSeeder::class);
         $this->call(PeriodoSeeder::class);
+        $this->call(PrincipalSeeder::class);
     
     }
 }

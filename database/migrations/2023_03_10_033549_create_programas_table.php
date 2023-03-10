@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('version_programa');
             $table->string('nivel_formacion');
             $table->string('codigo_area',10);
-            $table->foreign('codigo_area')->references('codigo_area')->on('areas');
+            $table->foreign('codigo_area')->references('codigo_area')->on('areas')->onDelete('cascade')->onUpdate('cascade');
             $table->timestamps();
         });
     }

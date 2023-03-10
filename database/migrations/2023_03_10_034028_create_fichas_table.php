@@ -21,8 +21,8 @@ return new class extends Migration
             $table->integer('cant_aprendices');
             $table->date('fecha_inicio');
             $table->date('fecha_fin');
-            $table->foreign('codigo_programa')->references('codigo_programa')->on('programas');
-            $table->foreign('codigo_tipo_form')->references('codigo_tipo_form')->on('tipo_formacions');
+            $table->foreign('codigo_programa')->references('codigo_programa')->on('programas')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('codigo_tipo_form')->references('codigo_tipo_form')->on('tipo_formacions')->onDelete('cascade')->onUpdate('cascade');
         });
     }
 

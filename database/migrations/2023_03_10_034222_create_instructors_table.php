@@ -23,8 +23,8 @@ return new class extends Migration
            // $table->string('codigo_red',10);
             $table->string('codigo_area',10);
             //$table->foreign('codigo_red')->references('codigo_red')->on('reds');
-            $table->foreign('codigo_tipo_contrato')->references('codigo_tipo_contrato')->on('tipo_contratos');
-            $table->foreign('codigo_area')->references('codigo_area')->on('areas');
+            $table->foreign('codigo_tipo_contrato')->references('codigo_tipo_contrato')->on('tipo_contratos')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('codigo_area')->references('codigo_area')->on('areas')->onDelete('cascade')->onUpdate('cascade');;
         
         });
     }
