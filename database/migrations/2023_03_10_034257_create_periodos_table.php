@@ -21,8 +21,8 @@ return new class extends Migration
             $table->date('fecha_inicio');
             $table->date('fecha_fin');
             $table->foreign('nro_ficha')->references('nro_ficha')->on('fichas')->onDelete('cascade')->onUpdate('cascade');
-            $table->foreign('codigo_com')->references('codigo_com')->on('competencias')->onDelete('cascade')->onUpdate('cascade');
-            $table->foreign('dia')->references('id')->on('dias')->onDelete('cascade')->onUpdate('cascade');
+            // $table->foreign('codigo_com')->references('codigo_com')->on('competencias')->onDelete('cascade')->onUpdate('cascade');
+            // $table->foreign('dia')->references('id')->on('dias')->onDelete('cascade')->onUpdate('cascade');
             $table->timestamps();
         });
     }

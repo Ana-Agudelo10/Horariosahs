@@ -34,6 +34,8 @@ class DatabaseSeeder extends Seeder
         $this->call(DiaSeeder::class);
         $this->call(PeriodoSeeder::class);
         $this->call(PrincipalSeeder::class);
+        $this->call(JornadaSeeder::class);
+        $this->call(OrganizacionSeeder::class);
     
     }
 }
