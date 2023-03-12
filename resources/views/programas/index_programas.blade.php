@@ -87,25 +87,13 @@
                         </div>
                         <div class="form-group">
                             <label>Nombre del Programa</label>
-                            <select class="form-group" name="nombre">
-
-                                    <option value="ANALISIS Y DESARROLLO DE SISTEMAS DE INFORMACION">ANALISIS Y DESARROLLO DE SISTEMAS DE INFORMACION</option>
-                                    <option value="ANÁLISIS Y DESARROLLO DE SOFTWARE" >ANÁLISIS Y DESARROLLO DE SOFTWARE</option>
-                                    <option value="IMPLEMENTACIÓN DE INFRAESTRUCTURA DE TECNOLOGIAS DE LA INFORMACIÓN Y LAS COMUNICACIONES">IMPLEMENTACIÓN DE INFRAESTRUCTURA DE TECNOLOGIAS DE LA INFORMACIÓN Y LAS COMUNICACIONES</option>
-                                    <option value="ANIMACION DIGITAL">ANIMACION DIGITAL</option>
-                                    <option value="PROGRAMACIÓN PARA ANALÍTICA DE DATOS">PROGRAMACIÓN PARA ANALÍTICA DE DATOS</option>
-                                    <option value="SISTEMAS">SISTEMAS</option>
-                                    <option value="INSTALACIÓN DE REDES DE COMPUTADORES">INSTALACIÓN DE REDES DE COMPUTADORES</option>
-                                    <option value="CONTROL DE LA SEGURIDAD DIGITAL">CONTROL DE LA SEGURIDAD DIGITAL</option>
-                                    <option value="PROGRAMACIÓN DE SOFTWARE">PROGRAMACIÓN DE SOFTWARE</option>
-                                    <option value="MANTENIMIENTO DE EQUIPOS DE COMPUTO">MANTENIMIENTO DE EQUIPOS DE COMPUTO</option>
-                            </select>
+                            <input type="text" class="form-control" name="nombre" required>
                         </div>
                         <div class="form-group">
                         <label>Version del Programa</label>
-                        <select  class="form-group" name="version_programa">
+                        <input type="number" name="version_programa" required>
 
-                        </select>
+
                         </div>
 
                         <div class="form-group">
@@ -116,8 +104,14 @@
                             </select>
                         </div>
                         <div class="form-group">
-                            <label>Codigo Area</label>
-                            <input type="number" class="form-control" name="codigo_area" required>
+                            <label>Area</label>
+                            <select name="codigo_area" id="">
+
+                                @foreach ($area as $a)
+                                    <option value="{{$a->codigo_area}}">{{$a->nombre}}</option>
+                                @endforeach
+
+                            </select>
                         </div>
                     </div>
                     <div class="modal-footer">
