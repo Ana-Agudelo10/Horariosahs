@@ -17,15 +17,74 @@
                     </div>
                     <div class="form-group">
                         <label>Nombre del Programa</label>
+                        <select class="form-group" name="nombre">
 
-                            <input type="text" class="form-control" name="nombre"  value="{{$mostrar->nombre}}" required>
+                                <option
+                                @if ($mostrar->nombre='ANALISIS Y DESARROLLO DE SISTEMAS DE INFORMACION')
+                            @selected(true)
+                                @endif
+                                value="ANALISIS Y DESARROLLO DE SISTEMAS DE INFORMACION">ANALISIS Y DESARROLLO DE SISTEMAS DE INFORMACION</option>
 
+                                <option value="ANÁLISIS Y DESARROLLO DE SOFTWARE"
+                                @if ($mostrar->nombre='ANÁLISIS Y DESARROLLO DE SOFTWARE')
+                            @selected(true)
+                                @endif
+                                >ANÁLISIS Y DESARROLLO DE SOFTWARE</option>
+
+                                <option
+                                @if ($mostrar->nombre='IMPLEMENTACIÓN DE INFRAESTRUCTURA DE TECNOLOGIAS DE LA INFORMACIÓN Y LAS COMUNICACIONES')
+                            @selected(true)
+                                @endif
+                                value="IMPLEMENTACIÓN DE INFRAESTRUCTURA DE TECNOLOGIAS DE LA INFORMACIÓN Y LAS COMUNICACIONES">IMPLEMENTACIÓN DE INFRAESTRUCTURA DE TECNOLOGIAS DE LA INFORMACIÓN Y LAS COMUNICACIONES</option>
+
+                                <option value="ANIMACION DIGITAL"
+                                @if ($mostrar->nombre='ANIMACION DIGITAL')
+                            @selected(true)
+                                @endif
+                                >ANIMACION DIGITAL</option>
+
+                                <option
+                                @if ($mostrar->nombre='PROGRAMACIÓN PARA ANALÍTICA DE DATOS')
+                            @selected(true)
+                                @endif
+                                value="PROGRAMACIÓN PARA ANALÍTICA DE DATOS">PROGRAMACIÓN PARA ANALÍTICA DE DATOS</option>
+
+                                <option value="SISTEMAS"
+                                @if ($mostrar->nombre='SISTEMAS')
+                            @selected(true)
+                                @endif
+                                >SISTEMAS</option>
+
+                                <option
+                                @if ($mostrar->nombre='INSTALACIÓN DE REDES DE COMPUTADORES')
+                            @selected(true)
+                                @endif
+                                value="INSTALACIÓN DE REDES DE COMPUTADORES">INSTALACIÓN DE REDES DE COMPUTADORES</option>
+                                
+                                <option value="CONTROL DE LA SEGURIDAD DIGITAL"
+                                @if ($mostrar->nombre='CONTROL DE LA SEGURIDAD DIGITAL')
+                            @selected(true)
+                                @endif
+                                >CONTROL DE LA SEGURIDAD DIGITAL</option>
+
+                                <option
+                                @if ($mostrar->nombre='PROGRAMACIÓN DE SOFTWARE')
+                            @selected(true)
+                                @endif
+                                value="PROGRAMACIÓN DE SOFTWARE">PROGRAMACIÓN DE SOFTWARE</option>
+                                
+                                <option value="MANTENIMIENTO DE EQUIPOS DE COMPUTO"
+                                @if ($mostrar->nombre='MANTENIMIENTO DE EQUIPOS DE COMPUTO')
+                            @selected(true)
+                                @endif
+                                >MANTENIMIENTO DE EQUIPOS DE COMPUTO</option>
+
+                        </select>
                     </div>
-                    <div class="form-group">
                     <label>Verion del Programa</label>
-                        <input type="number" name="version_programa" value="{{$mostrar->version_programa}}">
-
-                    </div>
+                    <select  class="form-group" name="version_programa">
+                       
+                    </select>
                     <label>Nivel de Formacion</label>
                     <select  class="form-group" name="nivel_formacion">
 
@@ -45,16 +104,7 @@
                     <div class="form-group">
                         <label>Codigo area</label>
                         <select  class="form-group" name="codigo_area">
-
-                            <option
-                            @foreach ($area as $item)
-                            @if ($item->codigo_area==$mostrar->codigo_area)
-                            @selected(true)
-                            @endif
-                            @endforeach
-
-                            value="{{$item->codigo_area}}">{{$item->nombre}}</option>
-
+                        
                         </select>
                     </div>
                 </div>

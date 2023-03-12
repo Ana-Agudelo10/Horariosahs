@@ -1,6 +1,7 @@
 @extends('pagina_principal')
-@section('titulo', 'Programas')
+@section('titulo', 'Horario')
 @section('cuerpo')
+<!-- <DIV><H1>PROVICIONAL</H1></DIV> -->
 <div class="tabla">
     <div class="container">
         <div class="table-responsive">
@@ -22,11 +23,15 @@
                                     <label for="selectAll"></label>
                                 </span>
                             </th>--}}
-                            <th>Codigo del Programa</th>
-                            <th>Nombre</th>
-                            <th>Version</th>
-                            <th>Nivel de Formacion</th>
-                            <th>Codigo Area</th>
+                            <th>Jornada</th>
+                            <th>DOMINGO</th>
+                            <th>LUNES</th>
+                            <th>MARTES</th>
+                            <th>MIERCOLES</th>
+                            <th>JUEVES</th>
+                            <th>VIERNES</th>
+                            <th>SABADO</th>
+
                             <th>Acciones</th>
                         </tr>
                     </thead>
@@ -39,15 +44,21 @@
                                         <label for="checkbox1"></label>
                                     </span>
                                 </td>--}}
-                                <td>{{ $item->codigo_programa}}</td>
-                                <td>{{ $item->nombre}}</td>
-                                <td>{{ $item->version_programa }}</td>
-                                <td>{{ $item->nivel_formacion }}</td>
                                 <td>{{ $item->codigo_area }}</td>
+                                <td>{{ $item->nombre }}</td>
+
+                                    @foreach ($reds as $red )
+                                    @if ($item->codigo_red==$red->codigo_red)
+                                    {{$red->nombre}}
+                                    @endif
+                                    @endforeach
+
+                                </td>
+
                                 <td>
-                                    <a href="{{route('programas.editar',"pan=".$item->codigo_programa)}}" class="edit" data-toggle="modal"><i
+                                    <a href="{{route('areas.editar',"pan=".$item->codigo_area)}}" class="edit" data-toggle="modal"><i
                                             class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
-                                    <a href="{{route('programas.eliminar',$item->codigo_programa)}}" class="delete" data-toggle="modal"><i
+                                    <a href="{{route('areas.eliminar',$item->codigo_area)}}" class="delete" data-toggle="modal"><i
                                             class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
                                 </td>
                             </tr>
@@ -73,52 +84,35 @@
     <div id="addEmployeeModal" class="modal fade">
         <div class="modal-dialog">
             <div class="modal-content">
-                <form method="post" action="{{route('programas.crear')}}">
+                <form method="post" action="{{route('areas.crear')}}">
                     @csrf
                     <div class="modal-header">
-                        <h4 class="modal-title">Adicionar Programas</h4>
+                        <h4 class="modal-title">Adicionar Area</h4>
                         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                     </div>
                     <div class="modal-body">
-                        <div class="form-group">
-                            <label>Codigo del Programa</label>
-                            <input type="text" class="form-control" name="codigo_programa" required>
+{{-----------------------------------------------------------------------------------------------------------------------------------}}
+                        <select  class="form-group" name="codigo_area">
+                            
+                        </select>
 
-                        </div>
                         <div class="form-group">
-                            <label>Nombre del Programa</label>
+                            <label>nombre</label>
                             <select class="form-group" name="nombre">
 
-                                    <option value="ANALISIS Y DESARROLLO DE SISTEMAS DE INFORMACION">ANALISIS Y DESARROLLO DE SISTEMAS DE INFORMACION</option>
-                                    <option value="ANÁLISIS Y DESARROLLO DE SOFTWARE" >ANÁLISIS Y DESARROLLO DE SOFTWARE</option>
-                                    <option value="IMPLEMENTACIÓN DE INFRAESTRUCTURA DE TECNOLOGIAS DE LA INFORMACIÓN Y LAS COMUNICACIONES">IMPLEMENTACIÓN DE INFRAESTRUCTURA DE TECNOLOGIAS DE LA INFORMACIÓN Y LAS COMUNICACIONES</option>
-                                    <option value="ANIMACION DIGITAL">ANIMACION DIGITAL</option>
-                                    <option value="PROGRAMACIÓN PARA ANALÍTICA DE DATOS">PROGRAMACIÓN PARA ANALÍTICA DE DATOS</option>
-                                    <option value="SISTEMAS">SISTEMAS</option>
-                                    <option value="INSTALACIÓN DE REDES DE COMPUTADORES">INSTALACIÓN DE REDES DE COMPUTADORES</option>
-                                    <option value="CONTROL DE LA SEGURIDAD DIGITAL">CONTROL DE LA SEGURIDAD DIGITAL</option>
-                                    <option value="PROGRAMACIÓN DE SOFTWARE">PROGRAMACIÓN DE SOFTWARE</option>
-                                    <option value="MANTENIMIENTO DE EQUIPOS DE COMPUTO">MANTENIMIENTO DE EQUIPOS DE COMPUTO</option>
+                                <option value="INFORMÁTICA, DISEÑO Y DESARROLLO DE SOFTWARE">INFORMÁTICA, DISEÑO Y DESARROLLO DE SOFTWARE</option>
                             </select>
-                        </div>
-                        <div class="form-group">
-                        <label>Version del Programa</label>
-                        <select  class="form-group" name="version_programa">
 
+                        </div>
+
+                        <label>Area</label>
+                        <select  class="form-group" name="codigo_area">
+                            @foreach ($areas as $item)
+                                <option value="{{ $item->codigo_area }}">{{ $item->nombre }}</option>
+                            @endforeach
                         </select>
-                        </div>
 
-                        <div class="form-group">
-                            <label>Nivel de Formacion</label>
-                            <select  class="form-group" name="nivel_formacion">
-                                <option value="TÉCNICO">TÉCNICO</option>
-                                <option value="TECNÓLOGO">TECNÓLOGO</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label>Codigo Area</label>
-                            <input type="number" class="form-control" name="codigo_area" required>
-                        </div>
+{{-----------------------------------------------------------------------------------------------------------------------------------}}
                     </div>
                     <div class="modal-footer">
                         <input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel">
