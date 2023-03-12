@@ -5,14 +5,13 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Periodo extends Model
+class Jornada extends Model
 {
     use HasFactory;
     //protected $primaryKey= '';
     //protected $keyType = 'string';
+    public $timestamps = false ;
     protected $fillable =[
-        'nro_ficha',
-        'fecha_inicio',
-        'fecha_fin'
+        'nombre'
     ];
 }

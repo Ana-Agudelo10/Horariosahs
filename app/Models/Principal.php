@@ -15,6 +15,6 @@ class Principal extends Model
         'codigo_com',
         'nro_documento',
         'nro_ambiente',
-        'Trimestre'
+        'trimestre'
     ];
 }
